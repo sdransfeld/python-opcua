@@ -340,7 +340,7 @@ class UaClient(object):
         return response.Results
 
     def write(self, params):
-        self.logger.info("read")
+        self.logger.info("write")
         request = ua.WriteRequest()
         request.Parameters = params
         data = self._uasocket.send_request(request)
@@ -350,7 +350,7 @@ class UaClient(object):
         return response.Results
 
     def get_endpoints(self, params):
-        self.logger.info("get_endpoint")
+        self.logger.info("get_endpoints")
         request = ua.GetEndpointsRequest()
         request.Parameters = params
         data = self._uasocket.send_request(request)
