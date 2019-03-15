@@ -571,16 +571,16 @@ class Client(object):
         """
         return load_enums(self)
 
-    def register_nodes(self, nodestoregister):
+    def register_nodes(self, nodes):
         """
         Register nodes for faster read and write access
         """
-        nodestoregister = [node.nodeid for node in nodestoregister]
-        return self.uaclient.register_nodes(nodestoregister)
+        nodes = [node.nodeid for node in nodes]
+        return self.uaclient.register_nodes(nodes)
 
-    def unregister_nodes(self, nodestounregister):
+    def unregister_nodes(self, nodes):
         """
         Unregister nodes
         """
-        nodestounregister = [node.nodeid for node in nodestounregister]
-        return self.uaclient.unregister_nodes(nodestounregister)
+        nodes = [node.nodeid for node in nodes]
+        return self.uaclient.unregister_nodes(nodes)
