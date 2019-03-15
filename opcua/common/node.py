@@ -678,3 +678,9 @@ class Node(object):
 
     def call_method(self, methodid, *args):
         return opcua.common.methods.call_method(self, methodid, *args)
+
+    def register(self):
+        return self.server.register_nodes([self.nodeid])[0]
+
+    def unregister(self):
+        return self.server.unregister_nodes([self.nodeid])

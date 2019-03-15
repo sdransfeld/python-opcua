@@ -594,3 +594,23 @@ class UaClient(object):
         self.logger.debug(response)
         response.ResponseHeader.ServiceResult.check()
         return response.Results
+
+    def register_nodes(self, nodestoregister):
+        self.logger.info("register_nodes")
+        request = ua.RegisterNodesRequest()
+        request.Parameters.NodesToRegister = nodestoregister
+        data = self._uasocket.send_request(request)
+        response = struct_from_binary(ua.RegisterNodesResponse, data)
+        self.logger.debug(response)
+        response.ResponseHeader.ServiceResult.check()
+        return response.Parameters
+
+    def unregister_nodes(self, nodestounregister):
+        self.logger.info("unregister_nodes")
+        request = ua.UnregisterNodesRequest()
+        request.Parameters.NodesToUnegister = nodestounregister
+        data = self._uasocket.send_request(request)
+        response = struct_from_binary(ua.UnregisterNodesResponse, data)
+        self.logger.debug(response)
+        response.ResponseHeader.ServiceResult.check()
+        # nothing to return for this service

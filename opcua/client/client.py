@@ -570,3 +570,17 @@ class Client(object):
         This enums will be available in ua module
         """
         return load_enums(self)
+
+    def register_nodes(self, nodestoregister):
+        """
+        Register nodes for faster read and write access
+        """
+        nodestoregister = [node.nodeid for node in nodestoregister]
+        return self.uaclient.register_nodes(nodestoregister)
+
+    def unregister_nodes(self, nodestounregister):
+        """
+        Unregister nodes
+        """
+        nodestounregister = [node.nodeid for node in nodestounregister]
+        return self.uaclient.unregister_nodes(nodestounregister)
