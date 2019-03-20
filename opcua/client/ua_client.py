@@ -608,7 +608,7 @@ class UaClient(object):
     def unregister_nodes(self, nodes):
         self.logger.info("unregister_nodes")
         request = ua.UnregisterNodesRequest()
-        request.Parameters.NodesToUnegister = nodes
+        request.Parameters.NodesToUnregister = nodes
         data = self._uasocket.send_request(request)
         response = struct_from_binary(ua.UnregisterNodesResponse, data)
         self.logger.debug(response)
